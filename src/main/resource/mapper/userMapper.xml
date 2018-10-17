@@ -2,5 +2,65 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xsj.dao.mapper.UserMapper">
-
+    <insert id="addUser" parameterType="com.xsj.entity.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="user_id != null"> user_id, </if>
+            <if test="username != null"> username, </if>
+            <if test="password != null"> password, </if>
+            <if test="user_type != null"> user_type, </if>
+            <if test="phone != null"> phone, </if>
+            <if test="created_time != null"> created_time, </if>
+            <if test="updated_time != null"> updated_time, </if>
+            <if test="state != null"> state </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="user_id != null"> #{user_id}, </if>
+            <if test="username != null"> #{username}, </if>
+            <if test="password != null"> #{password}, </if>
+            <if test="user_type != null"> #{user_type}, </if>
+            <if test="phone != null"> #{phone}, </if>
+            <if test="created_time != null"> #{created_time}, </if>
+            <if test="updated_time != null"> #{updated_time}, </if>
+            <if test="state != null"> #{state} </if>
+        </trim>
+    </insert>
+    <select id="getUser" parameterType="map" resultType="com.xsj.entity.User">
+        select * from user where true
+            <if test="user.user_id != null"> and user_id=#{user_id}</if>
+            <if test="user.username != null">and username=#{username}</if>
+            <if test="user.password != null">and password=#{password}</if>
+            <if test="user.user_type != null">and user_type=#{user_type}</if>
+            <if test="user.phone != null">and phone=#{phone}</if>
+            <if test="map.start_created_time != null">and created_time >=#{map.start_created_time}</if>
+            <if test="map.end_created_time != null">and created_time &lt;= #{map.end_created_time}</if>
+            <if test="map.start_updated_time != null">and updated_time >= #{map.start_updated_time}</if>
+            <if test="map.end_updated_time != null">and updated_time &lt;= #{map.end_updated_time}</if>
+            <if test="user.state != null">and state = #{state}</if>
+    </select>
+    <update id="updateUser" parameterType="com.xsj.entity.User">
+        update user set
+          <trim suffixOverrides=",">
+              <if test="user_id != null">user_id=#{user_id},</if>
+              <if test="username != null">username=#{username},</if>
+              <if test="password != null">password=#{password},</if>
+              <if test="user_type != null">user_type=#{user_type},</if>
+              <if test="phone != null">phone=#{phone},</if>
+              <if test="created_time != null">created_time=#{created_time},</if>
+              <if test="updated_time != null">updated_time=#{updated_time},</if>
+              <if test="user.state != null">and state = #{state}</if>
+          </trim>
+    </update>
+    <delete id="deleteUser" parameterType="com.xsj.entity.User">
+        delete from user
+        <where>
+            <if test="user_id != null">user_id = #{user_id}</if>
+            <if test="username != null">username = #{username}</if>
+            <if test="password != null">`password` = #{password}</if>
+            <if test="user_type != null">user_type = #{user_type}</if>
+            <if test="phone != null">phone = #{phone}</if>
+            <if test="state != null">state = #{state}</if>
+        </where>
+    </delete>
 </mapper>

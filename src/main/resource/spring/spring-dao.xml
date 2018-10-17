@@ -14,16 +14,6 @@
         <property name="url" value="${jdbc.url}"/>
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
-        <!--&lt;!&ndash;配置初始化大小 最小 最大&ndash;&gt;-->
-        <!--<property name="initialSize" value="1000"/>-->
-        <!--<property name="minIdle" value="100"/>-->
-        <!--<property name="maxActive" value="2000"/>-->
-        <!--&lt;!&ndash;配置获取连接超时的时间&ndash;&gt;-->
-        <!--<property name="maxWait" value="60000"/>-->
-        <!--&lt;!&ndash;配置时间检测空闲的连接关闭&ndash;&gt;-->
-        <!--<property name="timeBetweenEvictionRunsMillis" value="60000"/>-->
-        <!--&lt;!&ndash;配置监控统计拦截&ndash;&gt;-->
-        <!--<property name="filters" value="stat"/>-->
     </bean>
     <!--整合Mybatis-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
