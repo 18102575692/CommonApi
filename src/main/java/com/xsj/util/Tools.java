@@ -1,9 +1,14 @@
 package com.xsj.util;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
+import com.xsj.entity.User;
+
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -40,9 +45,6 @@ public class Tools {
          sb.append(n);
          //4、返回唯一码
           return sb.toString();
-    }
-    public static void main(String[] a){
-        System.out.println(getRandomUUID());
     }
 
 }
