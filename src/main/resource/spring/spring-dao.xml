@@ -22,7 +22,7 @@
         <property name="mapperLocations" value="classpath:/mapper/*.xml"/>
     </bean>
     <!--mapper和dao/mapper绑定-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--扫描mapper接口包-->
         <property name="basePackage" value="com.xsj.dao.mapper"/>
         <!--注入sqlSessionFactory-->

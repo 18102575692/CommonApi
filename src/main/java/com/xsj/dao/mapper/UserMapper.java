@@ -2,11 +2,12 @@ package com.xsj.dao.mapper;
 
 import com.xsj.entity.User;
 import org.apache.ibatis.annotations.Param;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 import java.util.Map;
 
-public interface UserMapper {
+public interface UserMapper extends Mapper<User> {
     /*增加用户*/
     int addUser(User user);
     /*查询用户*/

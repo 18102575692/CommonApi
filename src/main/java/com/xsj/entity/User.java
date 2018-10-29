@@ -1,5 +1,6 @@
 package com.xsj.entity;
 
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
@@ -9,6 +10,7 @@ import java.io.Serializable;
  */
 public class User implements Serializable {
     private static final long serialVersionUID = -4427388614551984622L;
+    @Id
     private String user_id;
     private String username;
     private String password;
